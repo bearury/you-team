@@ -47,21 +47,21 @@ export default defineComponent({
     formSubmit(formData: FormFields) {
       this.isSubmitting = true;
 
-      const credentials = { username: 'johnd', password: 'm38rmF$' };
+      const credentials = { username: formData.firstName, password: formData.password };
       fetch('https://fakestoreapi.com/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(credentials),
       }).then((response) => response.json())
-        .catch(() => {
-          this.responseError = 'Не верный логин или пароль! Попробуйте еще раз';
-        })
         .then((data) => {
           this.responseError = '';
           this.responseData = JSON.stringify({
             ...data,
             username: formData.firstName,
           });
+        })
+        .catch(() => {
+          this.responseError = 'Для успешного входа Имя: "johnd", Пароль: "m38rmF$"';
         })
         .finally(() => {
           this.isSubmitting = false;

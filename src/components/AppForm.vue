@@ -168,7 +168,7 @@ export default defineComponent({
         case 'password':
           if (!form.password) {
             errors.password = 'Поле обязательно для заполнения';
-          } else if (form.password.length < 8) {
+          } else if (form.password.length < 7) {
             errors.password = 'Пароль должен быть не менее 8 символов';
           } else if (!/[A-ZА-Я]/.test(form.password)) {
             errors.password = 'Пароль должен сожержать не менее оной заглавной буквы';
