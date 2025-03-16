@@ -50,16 +50,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-input {
-  width: 100%;
-  margin-top: 1rem;
-  border: 1px solid slateblue;
-  padding: .5rem 1rem;
-  border-radius: .2rem;
-  color: aliceblue;
-  background-color: rgba(255,255,255, 0.1);
-}
-
 label {
   display: block;
   font-weight: bold;
@@ -77,13 +67,23 @@ input {
   font-size: 1rem;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid slateblue;
+  -webkit-text-fill-color: #95b8e2;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 input:focus {
   outline: 2px solid slateblue;
   box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
-}
-
-.input-error {
-  border-color: #e74c3c;
 }
 
 .error {
